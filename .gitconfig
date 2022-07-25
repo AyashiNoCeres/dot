@@ -1,0 +1,12 @@
+[user]
+        name = Ayashi No Ceres
+        email = 67165866+AyashiNoCeres@users.noreply.github.com
+[core]
+        excludesfile = /home/ceres/.gitignore
+[alias]
+        co = checkout
+[pull]
+        ff = only
+[init]
+        defaultBranch = main
+
