@@ -168,21 +168,16 @@ alias '??'=google
 alias temp='cd $(mktemp -d)'
 alias scripts='cd $SCRIPTS'
 
-# --------------------- completion ----------------------
-
-bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
 
 # ------------- source external dependencies / completion ------------
 
 _have gh && . <(gh completion -s bash)
 
-
 # ------------------------------ history -----------------------------
 
 export HISTCONTROL=ignoreboth
-export HISTSIZE=5000
-export HISTFILESIZE=10000
+export HISTSIZE=50000
+export HISTFILESIZE=100000
 
 set -o vi
 shopt -s histappend

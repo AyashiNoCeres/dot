@@ -1,0 +1,6 @@
+#!/bin/bash
+
+name=$1
+shift
+echo $name
+exec docker run -it --rm -h "$name" --name "$name" "$name" "$@"
