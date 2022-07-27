@@ -107,6 +107,8 @@ bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect '^[[Z' reverse-menu-complete
 bindkey -M vicmd 'k' history-search-backward
 bindkey -M vicmd 'j' history-search-forward
+bindkey -M menuselect '^[' undo
+
 
 bindkey "^F" end-of-line
 bindkey "^?" backward-delete-char
