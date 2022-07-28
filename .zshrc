@@ -4,8 +4,8 @@ _have()      { type "$1" &>/dev/null; }
 _source_if() { [[ -r "$1" ]] && source "$1"; }
 
 # ----------------------- set vi mode ----------------------
-bindkey -v
 
+bindkey -v
 
 # ----------------------- environment variables ----------------------
 
@@ -55,6 +55,9 @@ ZSH_HIGHLIGHT_REGEXP+=('\<('${(j:|:)${(k)ABBR_GLOBAL_USER_ABBREVIATIONS}}')$' fg
 # ----------------------------- completion ----------------------------
 
 zstyle ':completion:*' menu select
+
+# Auto complete with case insensitivity
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zmodload zsh/complist
 
 # ----------------------------- prompt ----------------------------
