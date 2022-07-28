@@ -172,6 +172,8 @@ alias scripts='cd $SCRIPTS'
 # ------------- source external dependencies / completion ------------
 
 _have gh && . <(gh completion -s bash)
+_have podman && . <(podman completion bash)
+complete -C zet zet
 
 # ------------------------------ history -----------------------------
 
