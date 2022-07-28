@@ -9,7 +9,7 @@ ln -sf "$PWD/.profile" "$HOME/.profile"
 ln -sf "$PWD/.profile" "$HOME/.bash_profile"
 ln -sf "$PWD/.zshrc" "$HOME/.zshrc"
 
-for in in vim; do
+for i in in vim; do
   cd $i && ./setup
   cd -
 done
