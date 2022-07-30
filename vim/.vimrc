@@ -46,8 +46,24 @@ set hlsearch
 set incsearch
 set linebreak
 
+" disable relative line numbers, remove no to sample it
+set norelativenumber
+
 " disable spellcapcheck
 set spc=
+
+set noshowmatch
+
+" stop complaints about switching buffer with changes
+set hidden
+
+" start at last place you were editing
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+" command history
+set history=100
+
+au FileType yaml set sw=4
 
 " only load plugins if Plug detected
 if filereadable(expand("~/.vim/autoload/plug.vim"))
