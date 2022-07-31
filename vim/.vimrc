@@ -147,4 +147,8 @@ map <leader>C :setlocal formatoptions=cro<CR>
 " Enable spell checking, s for spell check
 map <leader>s :setlocal spell! spelllang=en_gb<CR>
 
-nnoremap S :%s//GI<Left><Left><Left>
+  nnoremap S :%s//GI<Left><Left><Left>
+
+" enable shift tab to works as inverse tab in insert mode
+inoremap <S-Tab> <C-d>
+
