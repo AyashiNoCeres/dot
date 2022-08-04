@@ -32,6 +32,7 @@ export GOPATH="$HOME/.local/share/go"
 export GOBIN="$HOME/.local/bin"
 export GOPROXY=direct
 export PAGER=less
+export KUBECONFIG="$HOME/.kube/config"
 
 export LESS_TERMCAP_mb=$'\e[1;32m'
 export LESS_TERMCAP_md=$'\e[1;32m'
@@ -60,10 +61,16 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zmodload zsh/complist
 
+zstyle ':completion:*:*:docker:*' option-stacking yes
+zstyle ':completion:*:*:docker-*:*' option-stacking yes
+
+autoload -Uz compinit && compinit
+
 # ------------------------- asdf --------------------------------
 
 . $HOME/.asdf/asdf.sh
 fpath=(${ASDF_DIR}/completions $fpath)
+fpath=(~/.local/share/zsh/completion $fpath)
 
 # ----------------------------- prompt ----------------------------
 
@@ -157,10 +164,10 @@ alias '??'=google
 
 zstyle :compinstall filename '/home/ceres/.zshrc'
 
-autoload -Uz compinit
-compinit
+autoload -Uz compinit && compinit
 
 _comp_options+=(globdots) # With hidden files
+source <(kubectl completion zsh)
 
 
 
