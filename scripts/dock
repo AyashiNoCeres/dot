@@ -1,0 +1,7 @@
+#!/bin/sh
+
+rootpath="$1:/root"
+docker cp ~/.inputrc $rootpath
+docker cp ~/.bashrc $rootpath
+docker exec -it $1 bash
+
