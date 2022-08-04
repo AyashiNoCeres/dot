@@ -63,7 +63,7 @@ au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g
 " command history
 set history=100
 
-au FileType yaml set sw=4
+au FileType yaml set sw=2 lcs+=space:· list
 
 " only load plugins if Plug detected
 if filereadable(expand("~/.vim/autoload/plug.vim"))
@@ -75,12 +75,12 @@ if filereadable(expand("~/.vim/autoload/plug.vim"))
   Plug 'frazrepo/vim-rainbow'
   Plug 'hashivim/vim-terraform'
   Plug 'tpope/vim-surround'
-  Plug 'stephpy/vim-yaml'
   Plug 'sheerun/vim-polyglot'
   Plug 'rwxrob/vim-pandoc-syntax-simple'
   Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
   Plug 'tpope/vim-fugitive'
   Plug 'vim-pandoc/vim-pandoc'
+  Plug 'neoclide/coc.nvim'
   call plug#end()
 
   " terraform
@@ -147,8 +147,19 @@ map <leader>C :setlocal formatoptions=cro<CR>
 " Enable spell checking, s for spell check
 map <leader>s :setlocal spell! spelllang=en_gb<CR>
 
-  nnoremap S :%s//GI<Left><Left><Left>
+nnoremap S :%s//GI<Left><Left><Left>
 
 " enable shift tab to works as inverse tab in insert mode
 inoremap <S-Tab> <C-d>
 
+" enable coc only for certain file types
+let s:my_coc_file_types = ['go', 'vim', 'sh', 'py', 'rs', 'yaml']
+function! s:disable_coc_for_type()
+	if index(s:my_coc_file_types, &filetype) == -1
+	        let b:coc_enabled = 0
+	endif
+endfunction
+augroup CocGroup
+	autocmd!
+	autocmd BufNew,BufEnter * call s:disable_coc_for_type()
+augroup end
