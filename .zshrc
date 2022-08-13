@@ -45,6 +45,10 @@ export LESS=-r
 
 export GROFF_NO_SGR=1
 
+if [ -f ~/.config/zsh/secrets ]; then
+  source ~/.config/zsh/secrets
+fi
+
 # --------------------- plugins -------------------------
 
 source "$HOME/.local/share/zsh/zsh-z/zsh-z.plugin.zsh"
@@ -173,3 +177,8 @@ source <(kubectl completion zsh)
 
 ###!!! THIS MUST BE LAST !!!###
 source "$HOME/.local/share/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C /usr/bin/terraform terraform
+
+complete -o nospace -C /usr/bin/packer packer

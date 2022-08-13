@@ -183,3 +183,7 @@ export HISTFILESIZE=100000
 
 set -o vi
 shopt -s histappend
+
+complete -C /usr/bin/terraform terraform
+
+complete -C /usr/bin/packer packer
