@@ -45,8 +45,10 @@ export LESS=-r
 
 export GROFF_NO_SGR=1
 
-if [ -f ~/.config/zsh/secrets ]; then
-  source ~/.config/zsh/secrets
+export ABBR_USER_ABBREVIATIONS_FILE="$HOME/.local/share/zsh/abbreviations"
+
+if [ -f ~/.local/share/zsh/secrets ]; then
+  source ~/.local/share/zsh/secrets
 fi
 
 # --------------------- plugins -------------------------
