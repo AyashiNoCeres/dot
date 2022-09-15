@@ -158,10 +158,10 @@ pathprepend() {
   done
 } && export pathprepend
 
-pathprepend \
-  "$HOME/.local/bin" \
-  "$GHREPOS/cmd-"* \
-  "$SCRIPTS"
+#pathprepend \
+#  "$HOME/.local/bin" \
+#  "$GHREPOS/cmd-"* \
+#  "$SCRIPTS"
 
 # ----------------------- aliases / abbrs -----------------------
 

@@ -1,0 +1,9 @@
+git clone https://github.com/zsh-users/zsh-autosuggestions $HOME/.local/share/zsh/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.local/share/zsh/zsh-syntax-highlighting
+git clone https://github.com/agkozak/zsh-z.git $HOME/.local/share/zsh/zsh-z
+git clone https://github.com/olets/zsh-abbr.git $HOME/.local/share/zsh/zsh-abbr
+
+ln -sf "$PWD/abbreviations" "$HOME/.local/share/zsh"
+
+
+
